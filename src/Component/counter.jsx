@@ -10,10 +10,6 @@ const Counter = () => {
   const tags = ["tag1", "tag2", "tag3"];
   let classes = "badge m-2 bg-";
   classes += count === 0 ? "danger" : "primary";
-  const renderTags = () => {
-    if (tags.length === 0) return "Тегов не найдено";
-    else return tags.map((tag) => <li key={tag}>{tag}</li>);
-  };
   const handleIncrement = (productId) => {
     setCount(count + 1);
   };
@@ -22,8 +18,6 @@ const Counter = () => {
   };
   return (
     <>
-      {tags.length === 0 && "Тегов не найдено"}
-      {renderTags()}
       <span className={classes}>{formCount()}</span>
       <button
         onClick={() => {
