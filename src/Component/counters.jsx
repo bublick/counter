@@ -16,13 +16,7 @@ const Counters = () => {
   return (
     <div>
       {counters.map((counter) => (
-        <Counter
-          key={counter.id}
-          id={counter.id}
-          value={counter.value}
-          name={counter.name}
-          onDelete={deleteHandler}
-        />
+        <Counter key={counter.id} onDelete={deleteHandler} {...counter} />
       ))}
     </div>
   );

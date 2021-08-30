@@ -21,7 +21,7 @@ const Counter = (props) => {
       <span className={classes}>{formValue()}</span>
       <button
         onClick={() => {
-          handleDecrement({ id: 1 });
+          handleDecrement({ id: props.id });
         }}
         className="btn btn-secondary btn-sm m-2"
       >
