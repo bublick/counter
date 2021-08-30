@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
+const Counter = (props) => {
+  const [value, setValue] = useState(props.value);
 
-  const formCount = () => {
-    return count === 0 ? "Ноль" : count;
+  const formValue = () => {
+    return value === 0 ? "Ноль" : value;
   };
 
-  const tags = ["tag1", "tag2", "tag3"];
   let classes = "badge m-2 bg-";
-  classes += count === 0 ? "danger" : "primary";
+  classes += value === 0 ? "danger" : "primary";
   const handleIncrement = (productId) => {
-    setCount(count + 1);
+    setValue(value + 1);
   };
   const handleDecrement = (productId) => {
-    if (count) setCount(count - 1);
+    if (value) setValue(value - 1);
   };
   return (
-    <>
-      <span className={classes}>{formCount()}</span>
+    <div>
+      <h4>{props.name}</h4>
+      <span className={classes}>{formValue()}</span>
       <button
         onClick={() => {
           handleDecrement({ id: 1 });
@@ -35,7 +35,13 @@ const Counter = () => {
       >
         Increment
       </button>
-    </>
+      <button
+        className="btn btn-danger btn-sm m-2"
+        onClick={() => props.onDelete(props.id)}
+      >
+        Delete
+      </button>
+    </div>
   );
 };
 
