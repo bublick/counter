@@ -1,20 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Counter = (props) => {
-  const [value, setValue] = useState(props.value);
-
   const formValue = () => {
     return props.value === 0 ? "Ноль" : props.value;
   };
 
   let classes = "badge m-2 bg-";
   classes += props.value === 0 ? "danger" : "primary";
-  const handleIncrement = (productId) => {
-    setValue(value + 1);
-  };
-  const handleDecrement = (productId) => {
-    if (value) setValue(value - 1);
-  };
+
   return (
     <div>
       <h4>{props.name}</h4>
